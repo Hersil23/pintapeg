@@ -1,0 +1,106 @@
+/* =============================================
+   PintaPeg - Estilos principales
+   ============================================= */
+
+/* Variables de color */
+:root {
+  --naranja: #FF6B00;
+  --dorado: #FFD700;
+  --verde: #7BC142;
+  --azul-marino: #0D1B3E;
+  --blanco: #FFFFFF;
+  --negro: #000000;
+  --gris-claro: #F5F5F5;
+  --gris-medio: #E0E0E0;
+  --gris-oscuro: #666666;
+
+  /* Tipografia */
+  --font-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Espaciado */
+  --espaciado-xs: 0.25rem;
+  --espaciado-sm: 0.5rem;
+  --espaciado-md: 1rem;
+  --espaciado-lg: 2rem;
+  --espaciado-xl: 4rem;
+
+  /* Bordes */
+  --radio: 8px;
+  --radio-lg: 16px;
+
+  /* Sombras */
+  --sombra: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --sombra-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+
+  /* Transiciones */
+  --transicion: 0.3s ease;
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-principal);
+  color: var(--negro);
+  background-color: var(--blanco);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Utilidades */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--espaciado-md);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

@@ -1,0 +1,28 @@
+# =============================================
+# PintaPeg - robots.txt
+# =============================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /uploads/
+
+# Crawlers de IA
+User-agent: GPTBot
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+Sitemap: https://pintapeg.com/sitemap.xml

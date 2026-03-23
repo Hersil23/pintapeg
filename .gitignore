@@ -1,0 +1,22 @@
+# Uploads (imagenes subidas por admin)
+uploads/productos/*
+!uploads/productos/.gitkeep
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Configuracion local (si se usa)
+api/config.local.php
+
+# Node (si se usa GSAP via npm)
+node_modules/

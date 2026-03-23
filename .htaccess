@@ -1,0 +1,76 @@
+# =============================================
+# PintaPeg - Seguridad y configuracion Apache
+# =============================================
+
+# Forzar HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# =============================================
+# Cabeceras de seguridad
+# =============================================
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# =============================================
+# Bloquear acceso directo a archivos sensibles
+# =============================================
+<FilesMatch "\.(sql|md|gitattributes|gitignore)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Bloquear acceso directo a config.php
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# =============================================
+# Proteger directorio API (solo POST/GET via AJAX)
+# =============================================
+<IfModule mod_rewrite.c>
+    RewriteCond %{REQUEST_URI} ^/api/ [NC]
+    RewriteCond %{REQUEST_METHOD} !^(GET|POST|PUT|DELETE)$ [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# =============================================
+# Bloquear listado de directorios
+# =============================================
+Options -Indexes
+
+# =============================================
+# Compresion GZIP
+# =============================================
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json
+    AddOutputFilterByType DEFLATE image/svg+xml
+</IfModule>
+
+# =============================================
+# Cache de archivos estaticos
+# =============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/json "access plus 1 day"
+</IfModule>
+
+# =============================================
+# Paginas de error personalizadas
+# =============================================
+ErrorDocument 404 /index.html
+ErrorDocument 403 /index.html

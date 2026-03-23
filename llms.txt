@@ -1,0 +1,25 @@
+# PintaPeg
+
+## Descripcion
+PintaPeg es una tienda online de pinturas, MDF, pegamentos y materiales para manualidades ubicada en Barquisimeto, Venezuela.
+
+## Slogan
+Pegale Color a Tu Vida
+
+## Productos
+- Pinturas (esmalte, caucho, latex, spray)
+- MDF en distintas medidas y espesores
+- Pegamentos y adhesivos
+- Herramientas para pintura
+- Materiales para manualidades
+
+## Contacto
+- Web: https://pintapeg.com
+- WhatsApp: +58 426-5196026
+- Ubicacion: Barquisimeto, Venezuela
+
+## Delivery
+Servicio de delivery disponible en Barquisimeto y zonas aledanas.
+
+## Monedas
+Precios disponibles en USD y Bolivares (Bs). Tasa de cambio actualizada diariamente segun BCV.
