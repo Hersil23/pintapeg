@@ -142,7 +142,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background: var(--azul-marino);
+  background: linear-gradient(180deg, #FF6B00 0%, #FFD700 50%, #7BC142 100%);
   padding-top: 70px;
   position: relative;
   overflow: hidden;
@@ -155,22 +155,34 @@
   align-items: center;
 }
 
-.hero-text h2 {
-  font-size: 3.5rem;
-  color: var(--blanco);
-  line-height: 1.1;
-  margin-bottom: 1rem;
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
-.hero-text h2 span {
-  color: var(--naranja);
+.hero-line {
+  display: block;
+  font-size: 5rem;
+  font-weight: 900;
+  color: var(--blanco);
+  line-height: 1.05;
+  text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.hero-line.hero-color {
+  font-size: 6rem;
+  letter-spacing: 0.08em;
+  text-shadow: 3px 5px 10px rgba(0, 0, 0, 0.35);
 }
 
 .hero-text p {
   font-size: 1.15rem;
-  color: var(--gris-medio);
+  color: var(--blanco);
   margin-bottom: 2rem;
   line-height: 1.6;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .hero-image {
@@ -180,6 +192,8 @@
 .hero-image img {
   max-width: 100%;
   max-height: 500px;
+  border-radius: var(--radio-lg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
 }
 
 /* =============================================
@@ -188,19 +202,19 @@
 .btn-hero {
   display: inline-block;
   padding: 0.85rem 2rem;
-  background: var(--naranja);
+  background: var(--azul-marino);
   color: var(--blanco);
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
   transition: all var(--transicion);
-  box-shadow: 0 4px 15px rgba(255,107,0,0.4);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 .btn-hero:hover {
-  background: #E55D00;
+  background: #0A142F;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(255,107,0,0.5);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
 
 .btn-whatsapp {
@@ -862,12 +876,16 @@
     text-align: center;
   }
 
-  .hero-text h2 {
-    font-size: 2.2rem;
+  .hero-line {
+    font-size: 3rem;
+  }
+
+  .hero-line.hero-color {
+    font-size: 3.8rem;
   }
 
   .hero-image {
-    order: -1;
+    order: 1;
   }
 
   .hero-image img {
