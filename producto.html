@@ -7,15 +7,205 @@
   <meta name="theme-color" content="#FF6B00">
   <title>Producto - PintaPeg</title>
   <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/assets/img/icons/icon-96x96.png">
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/components.css">
+  <link rel="stylesheet" href="/assets/css/animations.css">
 </head>
 <body>
-  <!-- Se implementara en Fase 5 -->
-  <h1>Detalle de Producto</h1>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="logo">
+      <h1>PintaPeg</h1>
+    </a>
+    <div class="nav-links">
+      <a href="/">Inicio</a>
+      <a href="/tienda.html">Tienda</a>
+      <a href="/nosotros.html">Nosotros</a>
+      <a href="/contacto.html">Contacto</a>
+      <div class="moneda-selector">
+        <button data-moneda="usd" class="active">USD</button>
+        <button data-moneda="ves">Bs</button>
+      </div>
+      <button class="btn-carrito" onclick="abrirCarrito()">
+        &#128722;
+        <span class="badge-count" style="display:none">0</span>
+      </button>
+    </div>
+    <button class="btn-menu-toggle">&#9776;</button>
+  </nav>
+
+  <!-- Detalle -->
+  <section class="product-detail">
+    <div class="container" id="product-container">
+      <p style="text-align:center;color:var(--gris-oscuro);grid-column:1/-1;padding:4rem 0">Cargando producto...</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" style="margin-top:4rem">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>PintaPeg</h3>
+          <p>Pegale Color a Tu Vida. Tu tienda de pinturas y materiales en Barquisimeto.</p>
+        </div>
+        <div>
+          <h3>Links</h3>
+          <a href="/">Inicio</a>
+          <a href="/tienda.html">Tienda</a>
+          <a href="/nosotros.html">Nosotros</a>
+          <a href="/contacto.html">Contacto</a>
+        </div>
+        <div>
+          <h3>Contacto</h3>
+          <a href="https://wa.me/584265196026" target="_blank">WhatsApp: 0426-5196026</a>
+          <a href="mailto:mpintapeg@gmail.com">mpintapeg@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>PintaPeg &copy; 2024. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay"></div>
+  <div class="cart-drawer">
+    <div class="cart-header">
+      <h3>Carrito de Compras</h3>
+      <button class="cart-close">&times;</button>
+    </div>
+    <div class="cart-items">
+      <div class="cart-empty"><p>Tu carrito esta vacio</p></div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="total-label">Total:</span>
+        <span class="total-value">$0.00</span>
+      </div>
+      <div class="cart-total-alt">Bs. 0,00</div>
+      <button class="btn-checkout" onclick="iniciarCheckout()" disabled style="opacity:0.5">
+        Pedir por WhatsApp
+      </button>
+    </div>
+  </div>
 
   <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/carrito.js"></script>
   <script src="/assets/js/moneda.js"></script>
+  <script src="/assets/js/carrito.js"></script>
+  <script src="/assets/js/checkout.js"></script>
+  <script>
+    let currentProduct = null;
+    let qty = 1;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      const params = new URLSearchParams(window.location.search);
+      const slug = params.get('slug');
+
+      if (!slug) {
+        window.location.href = '/tienda.html';
+        return;
+      }
+
+      const prod = await apiFetch(`productos.php?slug=${slug}`);
+      if (!prod || prod.error) {
+        document.getElementById('product-container').innerHTML =
+          '<p style="text-align:center;padding:4rem 0">Producto no encontrado. <a href="/tienda.html" style="color:var(--naranja)">Volver a la tienda</a></p>';
+        return;
+      }
+
+      currentProduct = prod;
+      document.title = `${prod.nombre} - PintaPeg`;
+
+      // Update meta
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = `${prod.nombre} - ${prod.descripcion || 'PintaPeg'}`;
+
+      renderProductDetail(prod);
+    });
+
+    function renderProductDetail(prod) {
+      const moneda = getMonedaPreferida();
+      const tasa = getTasaActual();
+      const monedaAlt = moneda === 'usd' ? 'ves' : 'usd';
+      const precioMain = calcularPrecio(prod.precio, prod.moneda_base, moneda, tasa);
+      const precioSec = calcularPrecio(prod.precio, prod.moneda_base, monedaAlt, tasa);
+      const imgSrc = prod.imagen ? `/uploads/productos/${prod.imagen}` : '/assets/img/icons/icon-192x192.png';
+
+      document.getElementById('product-container').innerHTML = `
+        <div class="product-detail-img">
+          <img src="${imgSrc}" alt="${prod.nombre}">
+        </div>
+        <div class="product-detail-info">
+          <span class="category">${prod.categoria_nombre || ''}</span>
+          <h1>${prod.nombre}</h1>
+          <div class="price-main" data-precio="${prod.precio}" data-moneda-base="${prod.moneda_base}">
+            ${formatPrice(precioMain, moneda)}
+          </div>
+          <div class="price-secondary">${formatPrice(precioSec, monedaAlt)}</div>
+          ${prod.descripcion ? `<p class="description">${prod.descripcion}</p>` : ''}
+          <div class="stock-info">
+            ${prod.stock > 0
+              ? `<span class="in-stock">En stock (${prod.stock} disponibles)</span>`
+              : `<span class="out-stock">Agotado</span>`}
+          </div>
+          ${prod.stock > 0 ? `
+            <div class="quantity-selector">
+              <button onclick="changeQty(-1)">-</button>
+              <input type="number" id="qty-input" value="1" min="1" max="${prod.stock}" onchange="setQty(this.value)">
+              <button onclick="changeQty(1)">+</button>
+            </div>
+            <button class="btn-add-detail" onclick="addProductToCart()">
+              Agregar al carrito
+            </button>
+          ` : ''}
+        </div>
+      `;
+
+      // Schema.org JSON-LD
+      const schema = {
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: prod.nombre,
+        description: prod.descripcion || '',
+        image: window.location.origin + imgSrc,
+        offers: {
+          '@type': 'Offer',
+          price: prod.precio,
+          priceCurrency: prod.moneda_base.toUpperCase(),
+          availability: prod.stock > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+        }
+      };
+      const scriptTag = document.createElement('script');
+      scriptTag.type = 'application/ld+json';
+      scriptTag.textContent = JSON.stringify(schema);
+      document.head.appendChild(scriptTag);
+    }
+
+    function changeQty(delta) {
+      const input = document.getElementById('qty-input');
+      const max = parseInt(input.max) || 99;
+      qty = Math.min(Math.max(1, qty + delta), max);
+      input.value = qty;
+    }
+
+    function setQty(val) {
+      const input = document.getElementById('qty-input');
+      const max = parseInt(input.max) || 99;
+      qty = Math.min(Math.max(1, parseInt(val) || 1), max);
+      input.value = qty;
+    }
+
+    function addProductToCart() {
+      if (!currentProduct) return;
+      const imgSrc = currentProduct.imagen ? `/uploads/productos/${currentProduct.imagen}` : '/assets/img/icons/icon-192x192.png';
+
+      for (let i = 0; i < qty; i++) {
+        addToCart(currentProduct.id, currentProduct.nombre, currentProduct.precio, currentProduct.moneda_base, imgSrc);
+      }
+    }
+  </script>
 </body>
 </html>
