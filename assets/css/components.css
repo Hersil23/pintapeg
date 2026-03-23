@@ -27,7 +27,13 @@
 }
 
 .navbar .logo img {
-  height: 55px;
+  height: 65px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .navbar .logo h1 {
@@ -845,6 +851,10 @@
 
   .btn-menu-toggle {
     display: block;
+  }
+
+  .navbar .logo img {
+    height: 50px;
   }
 
   .hero .container {
