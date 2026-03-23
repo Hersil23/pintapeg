@@ -1,6 +1,12 @@
+# Configuracion con credenciales reales
+api/config.php
+
 # Uploads (imagenes subidas por admin)
-uploads/productos/*
+uploads/
 !uploads/productos/.gitkeep
+
+# Variables de entorno
+.env
 
 # Archivos de sistema
 .DS_Store
@@ -14,9 +20,6 @@ desktop.ini
 
 # Logs
 *.log
-
-# Configuracion local (si se usa)
-api/config.local.php
 
 # Node (si se usa GSAP via npm)
 node_modules/

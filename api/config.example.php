@@ -1,6 +1,11 @@
 <?php
 /**
  * PintaPeg - Configuracion de base de datos y constantes globales
+ *
+ * INSTRUCCIONES:
+ * 1. Copiar este archivo como config.php
+ * 2. Rellenar las credenciales reales de la base de datos
+ * 3. config.php esta en .gitignore, nunca se sube al repo
  */
 
 // Prevenir acceso directo
@@ -13,9 +18,9 @@ if (!defined('PINTAPEG')) {
 // Configuracion de base de datos
 // =============================================
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'pintapeg');
-define('DB_USER', 'root');        // Cambiar en produccion
-define('DB_PASS', '');            // Cambiar en produccion
+define('DB_NAME', 'tu_base_de_datos');
+define('DB_USER', 'tu_usuario');
+define('DB_PASS', 'tu_contraseña');
 define('DB_CHARSET', 'utf8mb4');
 
 // =============================================
