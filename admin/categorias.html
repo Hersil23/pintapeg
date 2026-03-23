@@ -6,9 +6,98 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Categorias - PintaPeg Admin</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
-  <!-- Se implementara en Fase 3 -->
-  <h1>Gestionar Categorias</h1>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="logo">
+        <h2>PintaPeg</h2>
+        <span>Panel Admin</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html"><span class="icon">&#9632;</span> Dashboard</a>
+        <a href="/admin/categorias.html" class="active"><span class="icon">&#9776;</span> Categorias</a>
+        <a href="/admin/productos.html"><span class="icon">&#9733;</span> Productos</a>
+        <a href="/admin/ventas.html"><span class="icon">&#36;</span> Ventas</a>
+        <a href="/admin/config.html"><span class="icon">&#9881;</span> Configuracion</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <header class="admin-header">
+        <h1>Categorias</h1>
+        <div class="user-info">
+          <span id="user-name"></span>
+          <button class="btn-logout" onclick="handleLogout()">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2>Listado de categorias</h2>
+            <button class="btn btn-primary" onclick="openCategoriaModal()">+ Nueva Categoria</button>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Orden</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="categorias-tbody">
+              <tr><td colspan="6" style="text-align:center;color:var(--admin-text-muted)">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Categoria -->
+  <div id="modal-categoria" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-categoria-title">Nueva Categoria</h3>
+        <button class="modal-close" onclick="closeModal('modal-categoria')">&times;</button>
+      </div>
+      <form id="categoria-form" onsubmit="saveCategoria(event)">
+        <input type="hidden" id="categoria-id">
+        <div class="form-group">
+          <label for="cat-nombre">Nombre</label>
+          <input type="text" id="cat-nombre" class="form-control" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cat-orden">Orden</label>
+            <input type="number" id="cat-orden" class="form-control" value="0" min="0">
+          </div>
+          <div class="form-group">
+            <label for="cat-imagen">Imagen</label>
+            <input type="file" id="cat-imagen" class="form-control" accept="image/*">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-check">
+            <input type="checkbox" id="cat-activo" checked>
+            Activa
+          </label>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-categoria')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

@@ -6,9 +6,100 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Ventas - PintaPeg Admin</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
-  <!-- Se implementara en Fase 4 -->
-  <h1>Historial de Ventas</h1>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="logo">
+        <h2>PintaPeg</h2>
+        <span>Panel Admin</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html"><span class="icon">&#9632;</span> Dashboard</a>
+        <a href="/admin/categorias.html"><span class="icon">&#9776;</span> Categorias</a>
+        <a href="/admin/productos.html"><span class="icon">&#9733;</span> Productos</a>
+        <a href="/admin/ventas.html" class="active"><span class="icon">&#36;</span> Ventas</a>
+        <a href="/admin/config.html"><span class="icon">&#9881;</span> Configuracion</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <header class="admin-header">
+        <h1>Ventas</h1>
+        <div class="user-info">
+          <span id="user-name"></span>
+          <button class="btn-logout" onclick="handleLogout()">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="stat-ventas-hoy">0</div>
+            <div class="stat-label">Ventas hoy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-monto-hoy">$0.00</div>
+            <div class="stat-label">Monto hoy</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-ventas-mes">0</div>
+            <div class="stat-label">Ventas del mes</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="stat-monto-total">$0.00</div>
+            <div class="stat-label">Monto total</div>
+          </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2>Historial de ventas</h2>
+            <div style="display:flex;gap:0.5rem;align-items:center">
+              <input type="date" id="filtro-desde" class="form-control" style="width:auto">
+              <input type="date" id="filtro-hasta" class="form-control" style="width:auto">
+              <button class="btn btn-primary btn-sm" onclick="filtrarVentas()">Filtrar</button>
+            </div>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Referencia</th>
+                <th>Cliente</th>
+                <th>Total USD</th>
+                <th>Total Bs</th>
+                <th>Fecha</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="ventas-tbody">
+              <tr><td colspan="6" style="text-align:center;color:var(--admin-text-muted)">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Detalle Venta -->
+  <div id="modal-venta" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Detalle de Venta</h3>
+        <button class="modal-close" onclick="closeModal('modal-venta')">&times;</button>
+      </div>
+      <div id="venta-detalle" style="line-height:1.8"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modal-venta')">Cerrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

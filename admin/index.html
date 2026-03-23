@@ -6,9 +6,28 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Login - PintaPeg Admin</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
-<body>
-  <!-- Se implementara en Fase 3 -->
-  <h1>PintaPeg Admin - Login</h1>
+<body class="login-page">
+  <div class="login-card">
+    <h1>PintaPeg</h1>
+    <p class="subtitle">Panel de Administracion</p>
+
+    <div id="login-error" class="login-error"></div>
+
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="admin@pintapeg.com" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Contrasena</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Tu contrasena" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Ingresar</button>
+    </form>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

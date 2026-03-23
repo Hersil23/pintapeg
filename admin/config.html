@@ -6,9 +6,87 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Configuracion - PintaPeg Admin</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
-  <!-- Se implementara en Fase 3 -->
-  <h1>Configuracion de Tienda</h1>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="logo">
+        <h2>PintaPeg</h2>
+        <span>Panel Admin</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html"><span class="icon">&#9632;</span> Dashboard</a>
+        <a href="/admin/categorias.html"><span class="icon">&#9776;</span> Categorias</a>
+        <a href="/admin/productos.html"><span class="icon">&#9733;</span> Productos</a>
+        <a href="/admin/ventas.html"><span class="icon">&#36;</span> Ventas</a>
+        <a href="/admin/config.html" class="active"><span class="icon">&#9881;</span> Configuracion</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <header class="admin-header">
+        <h1>Configuracion</h1>
+        <div class="user-info">
+          <span id="user-name"></span>
+          <button class="btn-logout" onclick="handleLogout()">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <!-- Tasa de cambio -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2>Tasa de Cambio</h2>
+            <button class="btn btn-primary btn-sm" onclick="actualizarTasas()">Actualizar Tasas</button>
+          </div>
+          <div class="stats-grid" style="margin-bottom:0">
+            <div class="stat-card">
+              <div class="stat-label">BCV (Oficial)</div>
+              <div class="stat-value" id="tasa-bcv" style="font-size:1.2rem">-</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">Paralelo</div>
+              <div class="stat-value" id="tasa-paralelo" style="font-size:1.2rem">-</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuracion general -->
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2>Configuracion General</h2>
+          </div>
+          <form onsubmit="saveConfig(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="cfg-tasa-activa">Tasa activa</label>
+                <select id="cfg-tasa-activa" class="form-control">
+                  <option value="bcv">BCV (Oficial)</option>
+                  <option value="paralelo">Paralelo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="cfg-moneda-default">Moneda por defecto</label>
+                <select id="cfg-moneda-default" class="form-control">
+                  <option value="usd">USD (Dolares)</option>
+                  <option value="ves">VES (Bolivares)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="cfg-whatsapp">Numero WhatsApp</label>
+              <input type="text" id="cfg-whatsapp" class="form-control" placeholder="04265196026">
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar Configuracion</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>

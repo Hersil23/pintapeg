@@ -6,9 +6,130 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Productos - PintaPeg Admin</title>
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/admin.css">
 </head>
 <body>
-  <!-- Se implementara en Fase 3 -->
-  <h1>Gestionar Productos</h1>
+  <div class="admin-layout">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <div class="logo">
+        <h2>PintaPeg</h2>
+        <span>Panel Admin</span>
+      </div>
+      <nav class="admin-nav">
+        <a href="/admin/dashboard.html"><span class="icon">&#9632;</span> Dashboard</a>
+        <a href="/admin/categorias.html"><span class="icon">&#9776;</span> Categorias</a>
+        <a href="/admin/productos.html" class="active"><span class="icon">&#9733;</span> Productos</a>
+        <a href="/admin/ventas.html"><span class="icon">&#36;</span> Ventas</a>
+        <a href="/admin/config.html"><span class="icon">&#9881;</span> Configuracion</a>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="admin-main">
+      <header class="admin-header">
+        <h1>Productos</h1>
+        <div class="user-info">
+          <span id="user-name"></span>
+          <button class="btn-logout" onclick="handleLogout()">Cerrar sesion</button>
+        </div>
+      </header>
+
+      <div class="admin-content">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2>Listado de productos</h2>
+            <button class="btn btn-primary" onclick="openProductoModal()">+ Nuevo Producto</button>
+          </div>
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Imagen</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="productos-tbody">
+              <tr><td colspan="7" style="text-align:center;color:var(--admin-text-muted)">Cargando...</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Producto -->
+  <div id="modal-producto" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modal-producto-title">Nuevo Producto</h3>
+        <button class="modal-close" onclick="closeModal('modal-producto')">&times;</button>
+      </div>
+      <form id="producto-form" onsubmit="saveProducto(event)">
+        <input type="hidden" id="producto-id">
+        <div class="form-group">
+          <label for="prod-nombre">Nombre</label>
+          <input type="text" id="prod-nombre" class="form-control" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prod-categoria">Categoria</label>
+            <select id="prod-categoria" class="form-control" required>
+              <option value="">Seleccionar...</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prod-imagen">Imagen</label>
+            <input type="file" id="prod-imagen" class="form-control" accept="image/*">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prod-descripcion">Descripcion</label>
+          <textarea id="prod-descripcion" class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="prod-precio">Precio</label>
+            <input type="number" id="prod-precio" class="form-control" step="0.01" min="0.01" required>
+          </div>
+          <div class="form-group">
+            <label for="prod-moneda">Moneda base</label>
+            <select id="prod-moneda" class="form-control">
+              <option value="usd">USD (Dolares)</option>
+              <option value="ves">VES (Bolivares)</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prod-stock">Stock</label>
+          <input type="number" id="prod-stock" class="form-control" value="0" min="0">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-check">
+              <input type="checkbox" id="prod-activo" checked>
+              Activo
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="form-check">
+              <input type="checkbox" id="prod-destacado">
+              Destacado
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modal-producto')">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/assets/js/admin.js"></script>
 </body>
 </html>
