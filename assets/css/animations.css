@@ -1,4 +1,50 @@
 /* =============================================
-   PintaPeg - Animaciones GSAP
-   Se implementara en Fase 8
+   PintaPeg - Animaciones
    ============================================= */
+
+/* Slide up animation for toast */
+@keyframes slideUp {
+  from { transform: translate(-50%, 20px); opacity: 0; }
+  to { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* Initial states for GSAP (prevent flash) */
+.gsap-fade {
+  opacity: 0;
+}
+
+.gsap-slide-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.gsap-slide-left {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.gsap-slide-right {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.gsap-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+/* Product card hover animations (CSS) */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Category filter button transition */
+.category-filter button {
+  transition: all 0.3s ease;
+}
+
+/* Smooth page transitions */
+body {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
