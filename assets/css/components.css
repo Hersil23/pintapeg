@@ -27,7 +27,7 @@
 }
 
 .navbar .logo img {
-  height: 40px;
+  height: 55px;
 }
 
 .navbar .logo h1 {
@@ -39,13 +39,16 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .nav-links a {
   color: var(--blanco);
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 1.05rem;
+  font-weight: 600;
   transition: color var(--transicion);
   position: relative;
 }
@@ -824,6 +827,7 @@
     top: 70px;
     left: 0;
     width: 100%;
+    transform: none;
     background: var(--azul-marino);
     flex-direction: column;
     padding: 1rem;
