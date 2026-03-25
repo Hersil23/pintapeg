@@ -219,9 +219,10 @@
 .hero-equipo-wrap {
   position: relative;
   width: 100%;
-  max-width: 480px;
-  margin-top: 50px;
+  max-width: 600px;
+  margin-top: 40px;
   overflow: hidden;
+  height: 300px;
 }
 
 .hero-equipo-wrap::after {
@@ -239,8 +240,7 @@
   position: relative;
   width: 100%;
   height: auto;
-  min-height: 280px;
-  max-height: 50svh;
+  min-height: 500px;
   object-fit: cover;
   object-position: top center;
   display: block;
