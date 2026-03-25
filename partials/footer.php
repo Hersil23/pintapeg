@@ -41,7 +41,7 @@
   </div>
 
   <div class="footer-bottom">
-    <p>PintaPeg &copy; 2025. Todos los derechos reservados. &nbsp;|&nbsp; Creado por <a href="https://herasi.dev" target="_blank">herasi.dev</a></p>
+    <p>PintaPeg &copy; 2026. Todos los derechos reservados. &nbsp;|&nbsp; Creado por <a href="https://herasi.dev" target="_blank">herasi.dev</a></p>
   </div>
 </footer>
 
