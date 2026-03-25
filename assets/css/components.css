@@ -1017,28 +1017,86 @@
   border: 4px solid var(--naranja);
 }
 
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+/* ── POR QUE ELEGIRNOS ── */
+.seccion-elegirnos {
+  background: #ffffff;
+  padding: 60px 24px;
 }
 
-.value-card {
-  padding: 2rem;
-  background: rgba(255,255,255,0.05);
-  border-radius: var(--radio-lg);
-  border: 1px solid rgba(255,255,255,0.1);
+.elegirnos-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.elegirnos-header {
   text-align: center;
+  margin-bottom: 48px;
 }
 
-.value-card .icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.elegirnos-titulo {
+  font-family: 'Chewy', cursive;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color: #082642;
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
 }
 
-.value-card h3 {
-  margin-bottom: 0.5rem;
-  color: var(--naranja);
+.elegirnos-subtitulo {
+  font-size: 1rem;
+  color: #666;
+}
+
+.elegirnos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.elegir-card {
+  background: #ffffff;
+  border-radius: 16px;
+  border-top: 4px solid #FF6B00;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.elegir-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.elegir-icono {
+  width: 64px;
+  height: 64px;
+  background: #FF6B00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: #ffffff;
+}
+
+.elegir-titulo {
+  font-family: 'Chewy', cursive;
+  font-size: 1.4rem;
+  color: #FF6B00;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+}
+
+.elegir-desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) {
+  .elegirnos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* =============================================
