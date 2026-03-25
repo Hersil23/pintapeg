@@ -207,23 +207,22 @@
   position: relative;
   width: 100%;
   min-height: 520px;
-  background: linear-gradient(180deg, #FF6B00 0%, #FF8C00 40%, #FFB300 70%, #c8d400 100%);
+  background: linear-gradient(180deg, #FF5500 0%, #FF8C00 50%, #FFB300 100%);
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
 }
 
 .hero-equipo {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  position: relative;
   width: 100%;
   max-width: 480px;
-  height: 100%;
+  height: 320px;
   object-fit: cover;
   object-position: top center;
   z-index: 1;
+  margin-top: auto;
 }
 
 .hero-overlay {
@@ -231,7 +230,7 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(255, 107, 0, 0.55) 0%,
+    rgba(255, 85, 0, 0.55) 0%,
     rgba(255, 140, 0, 0.35) 50%,
     rgba(255, 179, 0, 0.10) 100%
   );
@@ -243,7 +242,7 @@
   z-index: 3;
   text-align: center;
   width: 100%;
-  padding: 40px 20px 60px;
+  padding: 30px 20px 10px;
 }
 
 .hero-title {
@@ -285,22 +284,29 @@
 /* HERO DESKTOP */
 @media (min-width: 769px) {
   .hero-bg {
+    flex-direction: row;
     min-height: 620px;
-    justify-content: flex-start;
+    align-items: stretch;
   }
 
   .hero-equipo {
-    left: auto;
+    position: absolute;
+    top: 0;
     right: 0;
-    transform: none;
     width: 55%;
-    max-width: 700px;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    margin-top: 0;
   }
 
   .hero-content {
     text-align: left;
     width: 50%;
     padding: 80px 0 80px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-title {
@@ -309,11 +315,11 @@
 
   .hero-line-top,
   .hero-line-bottom {
-    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-size: clamp(4rem, 7vw, 7rem);
   }
 
   .hero-line-color {
-    font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+    font-size: clamp(3.8rem, 6.5vw, 6.5rem);
   }
 }
 
