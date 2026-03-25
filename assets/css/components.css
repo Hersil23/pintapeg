@@ -201,6 +201,8 @@
   width: 100%;
   position: relative;
   overflow: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .hero-bg {
@@ -212,6 +214,8 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .hero-equipo {
@@ -242,7 +246,7 @@
   z-index: 3;
   text-align: center;
   width: 100%;
-  padding: 30px 20px 10px;
+  padding: 50px 20px 15px;
 }
 
 .hero-title {
