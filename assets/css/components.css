@@ -1199,7 +1199,7 @@
 }
 
 .footer-bottom a {
-  color: #ffc933;
+  color: #FF6B00;
   text-decoration: none;
 }
 
@@ -1228,6 +1228,15 @@
   background: #1DA851;
   transform: scale(1.1);
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+@keyframes whatsapp-pulse {
+  0%, 100% { box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+  50% { box-shadow: 0 4px 20px rgba(37,211,102,0.5); }
+}
+
+.whatsapp-float {
+  animation: whatsapp-pulse 2.5s ease-in-out infinite;
 }
 
 /* FOOTER RESPONSIVE */
