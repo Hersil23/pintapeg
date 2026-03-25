@@ -97,6 +97,55 @@
     </div>
   </section>
 
+  <!-- Testimonios -->
+  <section class="seccion-testimonios">
+    <div class="testimonios-container">
+      <div class="testimonios-header">
+        <h2 class="testimonios-titulo">Lo que dicen nuestros clientes</h2>
+        <p class="testimonios-subtitulo">La confianza de Barquisimeto nos respalda</p>
+      </div>
+      <div class="testimonios-grid">
+
+        <div class="testimonio-card">
+          <div class="testimonio-estrellas">★★★★★</div>
+          <p class="testimonio-texto">"Excelente servicio, los materiales llegaron rapidísimo y con muy buena calidad. El MDF que compré quedó perfecto para mi proyecto. Sin duda volvere a comprar."</p>
+          <div class="testimonio-autor">
+            <div class="testimonio-avatar">M</div>
+            <div>
+              <p class="testimonio-nombre">María González</p>
+              <p class="testimonio-cargo">Artesana</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio-card">
+          <div class="testimonio-estrellas">★★★★★</div>
+          <p class="testimonio-texto">"Llevo meses comprando aquí y siempre encuentro todo lo que necesito. La pega amarilla Cano Fix es la mejor del mercado y a un precio justo. 100% recomendado."</p>
+          <div class="testimonio-autor">
+            <div class="testimonio-avatar">C</div>
+            <div>
+              <p class="testimonio-nombre">Carlos Medina</p>
+              <p class="testimonio-cargo">Carpintero</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonio-card">
+          <div class="testimonio-estrellas">★★★★★</div>
+          <p class="testimonio-texto">"El delivery es rapidísimo, pedí en la mañana y me llegó en la tarde. Los productos son originales y el trato es muy amable. PintaPeg es mi tienda favorita."</p>
+          <div class="testimonio-autor">
+            <div class="testimonio-avatar">L</div>
+            <div>
+              <p class="testimonio-nombre">Luisa Pérez</p>
+              <p class="testimonio-cargo">Decoradora de interiores</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <?php include __DIR__ . '/partials/footer.php'; ?>
 
   <?php include __DIR__ . '/partials/cart-drawer.php'; ?>
