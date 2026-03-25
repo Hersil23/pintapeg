@@ -110,14 +110,14 @@ function productCardHTML(prod) {
   return `
     <div class="product-card" data-id="${prod.id}" data-categoria="${prod.categoria_id}">
       ${prod.destacado ? '<span class="badge-destacado">Destacado</span>' : ''}
-      <a href="/producto.html?slug=${prod.slug}">
+      <a href="/producto.php?slug=${prod.slug}">
         <div class="product-card-img">
           <img src="${imgSrc}" alt="${prod.nombre}" loading="lazy">
         </div>
       </a>
       <div class="product-card-body">
         <span class="category">${prod.categoria_nombre || ''}</span>
-        <h3><a href="/producto.html?slug=${prod.slug}">${prod.nombre}</a></h3>
+        <h3><a href="/producto.php?slug=${prod.slug}">${prod.nombre}</a></h3>
         <div class="price" data-precio="${prod.precio}" data-moneda-base="${prod.moneda_base}">
           ${formatPrice(precioDisplay, moneda)}
         </div>

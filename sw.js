@@ -5,11 +5,11 @@
 const CACHE_NAME = 'pintapeg-v1';
 const STATIC_ASSETS = [
   '/',
-  '/index.html',
-  '/tienda.html',
-  '/producto.html',
-  '/nosotros.html',
-  '/contacto.html',
+  '/index.php',
+  '/tienda.php',
+  '/producto.php',
+  '/nosotros.php',
+  '/contacto.php',
   '/assets/css/main.css',
   '/assets/css/components.css',
   '/assets/css/animations.css',

@@ -16,9 +16,9 @@ $db = getDB();
 // Paginas estaticas
 $paginas = [
     ['url' => '/',              'priority' => '1.0', 'changefreq' => 'weekly'],
-    ['url' => '/nosotros.html', 'priority' => '0.6', 'changefreq' => 'monthly'],
-    ['url' => '/tienda.html',   'priority' => '0.9', 'changefreq' => 'daily'],
-    ['url' => '/contacto.html', 'priority' => '0.5', 'changefreq' => 'monthly'],
+    ['url' => '/nosotros.php', 'priority' => '0.6', 'changefreq' => 'monthly'],
+    ['url' => '/tienda.php',   'priority' => '0.9', 'changefreq' => 'daily'],
+    ['url' => '/contacto.php', 'priority' => '0.5', 'changefreq' => 'monthly'],
 ];
 
 // Productos activos
@@ -40,7 +40,7 @@ foreach ($paginas as $pagina) {
 // Productos
 foreach ($productos as $prod) {
     echo '  <url>' . "\n";
-    echo '    <loc>' . $baseUrl . '/producto.html?slug=' . htmlspecialchars($prod['slug']) . '</loc>' . "\n";
+    echo '    <loc>' . $baseUrl . '/producto.php?slug=' . htmlspecialchars($prod['slug']) . '</loc>' . "\n";
     echo '    <lastmod>' . date('Y-m-d', strtotime($prod['created_at'])) . '</lastmod>' . "\n";
     echo '    <changefreq>weekly</changefreq>' . "\n";
     echo '    <priority>0.8</priority>' . "\n";

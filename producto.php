@@ -1,42 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Detalle de producto - PintaPeg">
-  <meta name="theme-color" content="#FF6B00">
-  <title>Producto - PintaPeg</title>
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/png" href="/assets/img/icons/icon-96x96.png">
-  <link rel="stylesheet" href="/assets/css/main.css">
-  <link rel="stylesheet" href="/assets/css/components.css">
-  <link rel="stylesheet" href="/assets/css/animations.css">
-</head>
+<?php $titulo = 'Producto - PintaPeg'; ?>
+<?php $metaDesc = 'Detalle de producto - PintaPeg'; ?>
+<?php include __DIR__ . '/partials/head.php'; ?>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="/" class="logo">
-      <h1>PintaPeg</h1>
-    </a>
-    <div class="nav-links">
-      <a href="/">Inicio</a>
-      <a href="/tienda.html">Tienda</a>
-      <a href="/nosotros.html">Nosotros</a>
-      <a href="/contacto.html">Contacto</a>
-    </div>
-    <div class="nav-right">
-      <div class="moneda-selector">
-        <button data-moneda="usd" class="active">USD</button>
-        <button data-moneda="ves">Bs</button>
-      </div>
-      <button class="btn-carrito" onclick="abrirCarrito()">
-        &#128722;
-        <span class="badge-count" style="display:none">0</span>
-      </button>
-      <button class="btn-menu-toggle">&#9776;</button>
-    </div>
-  </nav>
+  <?php include __DIR__ . '/partials/navbar.php'; ?>
 
   <!-- Detalle -->
   <section class="product-detail">
@@ -45,61 +14,10 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer" style="margin-top:4rem">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>PintaPeg</h3>
-          <p>Pegale Color a Tu Vida. Tu tienda de pinturas y materiales en Barquisimeto.</p>
-        </div>
-        <div>
-          <h3>Links</h3>
-          <a href="/">Inicio</a>
-          <a href="/tienda.html">Tienda</a>
-          <a href="/nosotros.html">Nosotros</a>
-          <a href="/contacto.html">Contacto</a>
-        </div>
-        <div>
-          <h3>Contacto</h3>
-          <a href="https://wa.me/584265196026" target="_blank">WhatsApp: 0426-5196026</a>
-          <a href="mailto:mpintapeg@gmail.com">mpintapeg@gmail.com</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>PintaPeg &copy; 2024. Todos los derechos reservados.</p>
-      </div>
-    </div>
-  </footer>
+  <?php include __DIR__ . '/partials/footer.php'; ?>
 
-  <!-- Cart Drawer -->
-  <div class="cart-overlay"></div>
-  <div class="cart-drawer">
-    <div class="cart-header">
-      <h3>Carrito de Compras</h3>
-      <button class="cart-close">&times;</button>
-    </div>
-    <div class="cart-items">
-      <div class="cart-empty"><p>Tu carrito esta vacio</p></div>
-    </div>
-    <div class="cart-footer">
-      <div class="cart-total">
-        <span class="total-label">Total:</span>
-        <span class="total-value">$0.00</span>
-      </div>
-      <div class="cart-total-alt">Bs. 0,00</div>
-      <button class="btn-checkout" onclick="iniciarCheckout()" disabled style="opacity:0.5">
-        Pedir por WhatsApp
-      </button>
-    </div>
-  </div>
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="/assets/js/main.js"></script>
-  <script src="/assets/js/moneda.js"></script>
-  <script src="/assets/js/carrito.js"></script>
-  <script src="/assets/js/checkout.js"></script>
-  <script src="/assets/js/gsap-animations.js"></script>
+  <?php include __DIR__ . '/partials/cart-drawer.php'; ?>
+  <?php include __DIR__ . '/partials/scripts.php'; ?>
   <script>
     let currentProduct = null;
     let qty = 1;
@@ -109,14 +27,14 @@
       const slug = params.get('slug');
 
       if (!slug) {
-        window.location.href = '/tienda.html';
+        window.location.href = '/tienda.php';
         return;
       }
 
       const prod = await apiFetch(`productos.php?slug=${slug}`);
       if (!prod || prod.error) {
         document.getElementById('product-container').innerHTML =
-          '<p style="text-align:center;padding:4rem 0">Producto no encontrado. <a href="/tienda.html" style="color:var(--naranja)">Volver a la tienda</a></p>';
+          '<p style="text-align:center;padding:4rem 0">Producto no encontrado. <a href="/tienda.php" style="color:var(--naranja)">Volver a la tienda</a></p>';
         return;
       }
 
