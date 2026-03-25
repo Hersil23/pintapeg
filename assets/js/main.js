@@ -19,29 +19,24 @@ if ('serviceWorker' in navigator) {
 // =============================================
 document.addEventListener('DOMContentLoaded', () => {
   const menuBtn = document.querySelector('.btn-menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const navbar = document.querySelector('.navbar');
 
-  if (menuBtn && navLinks) {
+  if (menuBtn && navbar) {
     menuBtn.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
+      navbar.classList.toggle('menu-abierto');
     });
 
     // Cerrar al hacer click en un link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
+    const navLinks = navbar.querySelector('.nav-links');
+    if (navLinks) {
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navbar.classList.remove('menu-abierto');
+        });
       });
-    });
+    }
   }
 
-  // Marcar link activo en navbar
-  const currentPath = window.location.pathname;
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (currentPath === href || (currentPath === '/' && href === '/index.html')) {
-      link.classList.add('active');
-    }
-  });
 });
 
 // =============================================
@@ -51,10 +46,10 @@ window.addEventListener('scroll', () => {
   const navbar = document.querySelector('.navbar');
   if (navbar) {
     if (window.scrollY > 50) {
-      navbar.style.background = 'rgba(13, 27, 62, 0.95)';
+      navbar.style.background = 'linear-gradient(to right, #5a5a54, #d43020, #e04e0d, #e07415, #e0701a)';
       navbar.style.backdropFilter = 'blur(10px)';
     } else {
-      navbar.style.background = 'var(--azul-marino)';
+      navbar.style.background = 'linear-gradient(to right, #706F69, #fe3a28, #ff5f10, #ff8719, #ff821f)';
       navbar.style.backdropFilter = 'none';
     }
   }

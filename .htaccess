@@ -2,6 +2,9 @@
 # PintaPeg - Seguridad y configuracion Apache
 # =============================================
 
+# Pagina principal
+DirectoryIndex index.php index.html
+
 # Forzar HTTPS
 RewriteEngine On
 RewriteCond %{HTTPS} off
@@ -90,5 +93,5 @@ RewriteRule ^sitemap\.xml$ /api/sitemap.php [L]
 # =============================================
 # Paginas de error personalizadas
 # =============================================
-ErrorDocument 404 /index.html
-ErrorDocument 403 /index.html
+ErrorDocument 404 /index.php
+ErrorDocument 403 /index.php
