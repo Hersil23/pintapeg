@@ -1144,7 +1144,7 @@
 }
 
 .footer-links a:hover {
-  color: #ffc933;
+  color: #FF6B00;
 }
 
 .footer-icon {
@@ -1263,6 +1263,10 @@
 }
 
 .footer-email:hover {
+  color: #FF6B00;
+}
+
+.footer-bottom a:hover {
   color: #FF6B00;
 }
 
