@@ -4,7 +4,7 @@
     <!-- Columna 1: Logo + descripcion -->
     <div class="footer-col footer-brand">
       <img src="/assets/img/logo/logo.png" alt="PintaPeg" class="footer-logo">
-      <p class="footer-desc">Pegale Color a Tu Vida. Tu tienda de pinturas, MDF y materiales para manualidades en Barquisimeto, Venezuela.</p>
+      <p class="footer-desc">Pegale Color a Tu Vida. Pinturas, acabados y materiales para darle vida a tus ideas. Barquisimeto, Venezuela.</p>
     </div>
 
     <!-- Columna 2: Links -->
