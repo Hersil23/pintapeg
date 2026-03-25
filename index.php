@@ -10,8 +10,6 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-bg">
-      <img src="/assets/img/hero/equipo.png" alt="Equipo PintaPeg" class="hero-equipo">
-      <div class="hero-overlay"></div>
       <div class="hero-content">
         <h1 class="hero-title">
           <span class="hero-line-top">PÉGALE</span>
@@ -22,6 +20,8 @@
           <span class="hero-line-bottom">TU VIDA</span>
         </h1>
       </div>
+      <div class="hero-overlay"></div>
+      <img src="/assets/img/hero/equipo.png" alt="Equipo PintaPeg" class="hero-equipo">
     </div>
   </section>
 
