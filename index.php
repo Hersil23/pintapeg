@@ -28,18 +28,29 @@
   </section>
 
   <!-- Productos destacados -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Productos Destacados</h2>
-        <p>Lo mejor de nuestra tienda, seleccionado para ti</p>
+  <section class="seccion-productos">
+    <div class="productos-header">
+      <h2 class="productos-titulo">PRODUCTOS DESTACADOS</h2>
+    </div>
+    <div class="productos-grid" id="featured-products">
+      <div class="producto-card">
+        <div class="producto-img-wrap">
+          <img src="/assets/img/placeholder.png" alt="Producto" class="producto-img">
+        </div>
+        <div class="producto-info">
+          <p class="producto-nombre">Nombre del producto</p>
+          <p class="producto-ref">REF.$00</p>
+        </div>
+        <div class="producto-acciones">
+          <a href="#" class="btn-wsp">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="18"> REF.$00
+          </a>
+          <a href="#" class="btn-comprar">COMPRAR <span class="btn-precio">REF.$00</span></a>
+        </div>
       </div>
-      <div class="products-grid" id="featured-products">
-        <p style="text-align:center;color:var(--gris-oscuro);grid-column:1/-1">Cargando productos...</p>
-      </div>
-      <div style="text-align:center;margin-top:2rem">
-        <a href="/tienda.php" class="btn-hero">Ver Todos los Productos</a>
-      </div>
+    </div>
+    <div class="productos-ver-todos">
+      <a href="/tienda.php" class="btn-ver-todos">VER TODOS</a>
     </div>
   </section>
 
