@@ -81,17 +81,6 @@
     </div>
   </section>
 
-  <!-- CTA WhatsApp -->
-  <section class="section" style="text-align:center">
-    <div class="container">
-      <h2 style="font-size:2rem;margin-bottom:1rem">Tienes alguna pregunta?</h2>
-      <p style="color:var(--gris-oscuro);margin-bottom:2rem;font-size:1.1rem">Escribenos por WhatsApp y te atendemos al instante</p>
-      <a href="https://wa.me/584265196026" target="_blank" class="btn-whatsapp">
-        &#128172; Escribenos por WhatsApp
-      </a>
-    </div>
-  </section>
-
   <?php include __DIR__ . '/partials/footer.php'; ?>
 
   <?php include __DIR__ . '/partials/cart-drawer.php'; ?>
