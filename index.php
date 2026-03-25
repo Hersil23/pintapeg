@@ -21,7 +21,9 @@
         </h1>
       </div>
       <div class="hero-overlay"></div>
-      <img src="/assets/img/hero/equipo.png" alt="Equipo PintaPeg" class="hero-equipo">
+      <div class="hero-equipo-wrap">
+        <img src="/assets/img/hero/equipo.png" alt="Equipo PintaPeg" class="hero-equipo">
+      </div>
     </div>
   </section>
 
