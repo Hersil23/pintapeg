@@ -15,8 +15,9 @@
           <span class="hero-line-top">PÉGALE</span>
           <span class="hero-line-color">
             <span style="color:#FF3B30">C</span><span style="color:#FF9500">O</span><span style="color:#FFD700">L</span><span style="color:#34C759">O</span><span style="color:#007AFF">R</span>
+            <span class="hero-a">&nbsp;A</span>
           </span>
-          <span class="hero-line-bottom">A TU VIDA</span>
+          <span class="hero-line-bottom">TU VIDA</span>
         </h1>
       </div>
       <div class="hero-overlay"></div>
